@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { RouteComponentProps } from "react-router";
 import { ShipmentsApiResponse } from "../API/ShipmentsApi";
 import ShipmentFormField from "./ShipmentFormField";
@@ -10,22 +9,12 @@ export interface shipmentFormProps extends RouteComponentProps{
 
 
 const ShipmentForm = (shipment: shipmentFormProps) =>{
-    useEffect(() => {
-        if (shipment.selectedShipment !== undefined){
-            const orderNo = shipment.selectedShipment.orderNo;
-            const customer = shipment.selectedShipment.customer;
-            const consignee = shipment.selectedShipment.consignee;
-            const date = shipment.selectedShipment.date;
-            const trackingNo = shipment.selectedShipment.trackingNo;
-            const status = shipment.selectedShipment.status;
-            console.log([orderNo, customer, consignee, date, trackingNo, status])
-        }
-    })
+
     return <div>
-        <nav className="navbar navbar-expand-lg bg-info"></nav>
+        <nav className="navbar navbar-expand-lg bg-info"/>
         <div className="container-lg">
             <div className="row align-self-center">
-                <div className="col-2"></div>
+                <div className="col-2"/>
                 <h6 className="col-2">SHIPMENT DETAILS</h6>
             </div>
             <div className="row justify-content-center">

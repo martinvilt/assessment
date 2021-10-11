@@ -14,18 +14,14 @@ function App() {
   }
   const onShipmentChange = (updatedShipment: ShipmentsApiResponse) => {
     updateSelectedShipment(updatedShipment);
-  }
-
-  const editSelectedShipment = (updatedShipment: ShipmentsApiResponse) => {
-      const updateShipments = shipments.map((shipment) => {
-          console.log(updatedShipment);
+      shipments.forEach((shipment) =>{
           if (shipment.orderNo === updatedShipment.orderNo){
-              return updatedShipment;
+              let index = shipments.indexOf(shipment)
+              shipments[index] = updatedShipment;
+              updateShipments([...shipments])
           }
-          return shipment;
       })
-    }
-
+  }
   useEffect(() =>{
     getShipmentData().then((data: ShipmentsApiResponse[]) =>{updateShipments(data)})
   }, [])

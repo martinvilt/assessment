@@ -1,5 +1,5 @@
 // @ts-ignore
-import {getShipmentData, ShipmentsApiResponse} from "../API/ShipmentsApi";
+import {ShipmentsApiResponse} from "../API/ShipmentsApi";
 import {RouteComponentProps} from'react-router';
 import OpenImage from "./openSelected.png";
 import WhiteCross from "./whiteCross.png"
@@ -21,8 +21,8 @@ const getShipmentsTableHeaders = () =>{
             <th>TRACKINGNO</th>
             <th>STATUS</th>
             <th>CONSIGNEE</th>
-            <th></th>
-            <th></th>
+            <th/>
+            <th/>
         </tr>
 
         </thead>
@@ -51,7 +51,7 @@ const ShipmentsTable= (props: ShipmentsTableProps) =>{
                                 </button>
                             </td>
                             <td>
-                                <button type="button" className="btn btn-danger btn-lg" onClick={(e) => {props.onDeleteShipment(shipment.orderNo)}}><img src={WhiteCross} alt="whitecross"/></button>
+                                <button type="button" className="btn btn-danger btn-lg" onClick={() => {props.onDeleteShipment(shipment.orderNo)}}><img src={WhiteCross} alt="whitecross"/></button>
                             </td>
                         </tr>
                 )

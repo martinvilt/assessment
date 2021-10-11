@@ -1,6 +1,5 @@
 import React from "react";
 import {ShipmentsApiResponse} from "../API/ShipmentsApi";
-import {RouteComponentProps} from "react-router";
 
 export interface ShipmentsFormFieldProps{
     name: string;
@@ -9,22 +8,22 @@ export interface ShipmentsFormFieldProps{
     shipment:ShipmentsApiResponse;
 }
 
-const ShipmentFormField = (props: ShipmentsFormFieldProps) =>{
+const ShipmentFormField = ({name, onShipmentChange, shipment, shipmentField}: ShipmentsFormFieldProps) =>{
 
     const onEditField = (key:string, value:string) =>{
-        props.onShipmentChange({
-            ...props.shipment,
+        onShipmentChange({
+            ...(shipment),
         [key]:value,
         })
     }
 
-    if (!props.shipment) return <div>No shipment selected</div>
+    if (!shipment) return <div>No shipment selected</div>
 
     return(
         <div>
             <form className="form-group-field">
-                <label>{props.name}</label>
-                <input type={"text"} id={props.name} className="form-control" value={props.shipmentField} onChange={(e) => onEditField(props.name , e.target.value)}></input>
+                <label>{name}</label>
+                <input type={"text"} id={name} className="form-control" value={shipmentField} onChange={(e) => onEditField(name, e.target.value)}/>
             </form>
         </div>
     )

@@ -6,7 +6,7 @@ export interface ShipmentsApiResponse{
     customer: string;
     trackingNo: string;
     status: string;
-    consignee: string;  // typo from API
+    consignee: string;
 }
 
 export const getShipmentData = async () => {
